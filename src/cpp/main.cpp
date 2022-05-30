@@ -2,15 +2,16 @@
 #include <stdexcept>
 #include <cstdlib>
 
-#include "ve_window.hpp"
+#include "first_app.hpp"
 
 int main() {
-    ve::VE_WINDOW window;
+    vulkanEngine::FirstApp app{};
+
     try {
-        window.run();
+        app.run();
     } catch (const std::exception& e) {
-        std::cout << e.what() << std::endl;
-        return EXIT_FAILURE;        
+        std::cerr << "Error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
     }
 
     return EXIT_SUCCESS;
