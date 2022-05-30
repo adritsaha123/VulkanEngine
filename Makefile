@@ -1,5 +1,9 @@
-compile: debug
-	
+compile1: shaderCompile debug
+compile2: shaderCompile release
+
+shaderCompile: 
+	compile.bat $(info COMPILING SHADERS AND CONVERTING FROM .FRAG and .VERT TO .SPV)
+
 debug: src/cpp/*.cpp src/headers/*.hpp
 	g++ -I include/glm -I include/Vulkan -I include/GLFW -I src/headers -o bin/debug/output.exe src/cpp/*.cpp -L lib -lglfw3 -lvulkan-1 -lgdi32 && start bin/debug/output.exe $(info DEBUG MODE)
 # use -mwindows to not show window
